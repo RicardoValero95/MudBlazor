@@ -2,6 +2,11 @@
 
 <MudGrid>
     <MudItem md="8" Class="mud-text-align-center my-auto">
+        <MudButtonGroup>
+            <MudButton>First</MudButton>
+            <MudButton>Middle</MudButton>
+            <MudButton>Last</MudButton>
+        </MudButtonGroup>
         <MudText>@(MudIconButtonToggle ? "ON" : "OFF")</MudText>
         <MudButton OnClick="@(() => MudIconButtonToggle = !MudIconButtonToggle)"
                    StartIcon="@(ShowStartIcon ? Icons.Material.NavigateBefore : null)"
@@ -12,8 +17,11 @@
                    Disabled="@Disabled"
                    DisableElevation="@DisableElevation"
                    DisableRipple="@DisableRipple"
-                   Style="@(ShowStyle ? Style : null)">
+                   Style="@(ShowStyle ? Style : null)"
+                   Class="@ElevationClass">
+            <MudIcon Icon="@Icons.Material.Apple"></MudIcon>
             Text
+            <MudIcon Icon="@Icons.Material.Android"></MudIcon>
         </MudButton>
         <MudFab OnClick="@(() => MudIconButtonToggle = !MudIconButtonToggle)"
                 Icon="@Icons.Material.Add"
@@ -22,14 +30,16 @@
                 Disabled="@Disabled"
                 DisableElevation="@DisableElevation"
                 DisableRipple="@DisableRipple"
-                Style="@(ShowStyle ? Style : null)" />
+                Style="@(ShowStyle ? Style : null)"
+                Class="@ElevationClass" />
         <MudIconButton OnClick="@(() => MudIconButtonToggle = !MudIconButtonToggle)"
                        Icon="@(MudIconButtonToggle ? Icons.Material.AlarmOn : Icons.Material.AlarmOff)"
                        Color="@(MudIconButtonToggle ? Color.Success : Color.Error)"
                        Size="@Size"
                        Disabled="@Disabled"
                        DisableRipple="@DisableRipple"
-                       Style="@(ShowStyle ? Style : null)">
+                       Style="@(ShowStyle ? Style : null)"
+                       Class="@ElevationClass">
         </MudIconButton>
         <MudToggleIconButton @bind-Toggled="@MudIconButtonToggle"
                              Icon="@Icons.Material.AlarmOff" ToggledIcon="@Icons.Material.AlarmOn"
@@ -76,6 +86,8 @@
                 <MudCheckBox Label="Style" @bind-Checked="@ShowStyle" Color="Color.Primary"></MudCheckBox>
                 <MudTextField Label="Style" @bind-Value="@Style" Immediate="true" Lines="5">
                 </MudTextField>
+                <MudSlider @bind-Value="@Elevation" Step="1" Min="0" Max="25">Elevation</MudSlider>
+
             </MudCardContent>
         </MudCard>
     </MudItem>
@@ -93,4 +105,6 @@
     public bool MudIconButtonToggle { get; set; }
     public bool ShowStyle { get; set; }
     public string Style { get; set; } = "background-color: yellowgreen;\rcolor: white;\rwidth: 200px;\rheight: 60px;";
+    public string ElevationClass => $"mud-elevation-{Elevation}";
+    public int Elevation { get; set; }
 }

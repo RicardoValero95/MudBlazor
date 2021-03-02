@@ -1,0 +1,168 @@
+﻿@import '../abstracts/variables';
+
+.mud-button-group {
+    display: flex;
+    flex: 1;
+    width: 100%;
+
+    & > .mud-button {
+        flex: 1;
+        display: block;
+        overflow: hidden;
+        width: 0;
+        border-width: 1px 0px 1px 1px;
+        border-radius: 0;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:first-child {
+            border-radius: 2px 0px 0px 2px;
+        }
+
+        &:last-child {
+            border-right-width: 1px;
+            border-radius: 0px 2px 2px 0px;
+        }
+    }
+}
+
+
+/*// Make the div behave like a button
+.mud-button-group,
+.mud-button-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle; // match .mud-button alignment given font-size hack above
+    > .mud-button {
+        position: relative;
+        flex: 1 1 auto;
+    }
+    // Bring the hover, focused, and "active" buttons to the front to overlay
+    // the borders properly
+    > .mud-button-check:checked + .mud-button,
+    > .mud-button-check:focus + .mud-button,
+    > .mud-button:hover,
+    > .mud-button:focus,
+    > .mud-button:active,
+    > .mud-button.active {
+        z-index: 1;
+    }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.mud-button-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .input-group {
+        width: auto;
+    }
+}
+
+.mud-button-group {
+    // Prevent double borders when buttons are next to each other
+    > .mud-button:not(:first-child),
+    > .mud-button-group:not(:first-child) {
+        margin-left: -$btn-border-width;
+    }
+    // Reset rounded corners
+    > .mud-button:not(:last-child):not(.dropdown-toggle),
+    > .mud-button-group:not(:last-child) > .mud-button {
+        @include border-end-radius(0);
+    }
+    // The left radius should be 0 if the button is:
+    // - the "third or more" child
+    // - the second child and the previous element isn't `.mud-button-check` (making it the first child visually)
+    // - part of a btn-group which isn't the first child
+    > .mud-button:nth-child(n + 3),
+    > :not(.mud-button-check) + .mud-button,
+    > .mud-button-group:not(:first-child) > .mud-button {
+        @include border-start-radius(0);
+    }
+}
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.mud-button-group-sm > .mud-button {
+    @extend .mud-button-sm;
+}
+
+.mud-button-group-lg > .mud-button {
+    @extend .mud-button-lg;
+}
+
+
+//
+// Split button dropdowns
+//
+
+.dropdown-toggle-split {
+    padding-right: $btn-padding-x * .75;
+    padding-left: $btn-padding-x * .75;
+
+    &::after,
+    .dropup &::after,
+    .dropend &::after {
+        margin-left: 0;
+    }
+
+    .dropstart &::before {
+        margin-right: 0;
+    }
+}
+
+.mud-button-sm + .dropdown-toggle-split {
+    padding-right: $btn-padding-x-sm * .75;
+    padding-left: $btn-padding-x-sm * .75;
+}
+
+.mud-button-lg + .dropdown-toggle-split {
+    padding-right: $btn-padding-x-lg * .75;
+    padding-left: $btn-padding-x-lg * .75;
+}
+
+
+// The clickable button for toggling the menu
+// Set the same inset shadow as the :active state
+.mud-button-group.show .dropdown-toggle {
+    @include box-shadow($btn-active-box-shadow);
+    // Show no shadow for `.mud-button-link` since it has no other button styles.
+    &.mud-button-link {
+        @include box-shadow(none);
+    }
+}
+
+
+//
+// Vertical button groups
+//
+
+.mud-button-group-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    > .mud-button,
+    > .mud-button-group {
+        width: 100%;
+    }
+
+    > .mud-button:not(:first-child),
+    > .mud-button-group:not(:first-child) {
+        margin-top: -$btn-border-width;
+    }
+    // Reset rounded corners
+    > .mud-button:not(:last-child):not(.dropdown-toggle),
+    > .mud-button-group:not(:last-child) > .mud-button {
+        @include border-bottom-radius(0);
+    }
+
+    > .mud-button ~ .mud-button,
+    > .mud-button-group:not(:first-child) > .mud-button {
+        @include border-top-radius(0);
+    }
+}*/
